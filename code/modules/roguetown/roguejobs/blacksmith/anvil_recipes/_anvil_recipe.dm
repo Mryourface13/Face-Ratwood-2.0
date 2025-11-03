@@ -149,8 +149,10 @@
 
 	if(!modifier) // Sanity.
 		return
-		
-	I.max_integrity *= modifier
+	
+	if(modifier < 1)
+		I.max_integrity *= modifier
+	
 	I.sellprice *= modifier
 	if(istype(I, /obj/item/lockpick))
 		var/obj/item/lockpick/L = I
