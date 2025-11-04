@@ -1,5 +1,3 @@
-// Wretch antagonist datum (mostly for admin's Check Antags as of right now, but may be expanded later)
-
 /datum/antagonist/wretch
 	name = "Wretch"
 	roundend_category = "wretches"

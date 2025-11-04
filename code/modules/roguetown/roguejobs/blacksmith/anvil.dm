@@ -207,7 +207,7 @@
 			if(!istype(recipe))
 				return TRUE
 			var/has_required_item = FALSE
-
+			
 			// Check both bar and blade requirements
 			if(recipe.req_bar && istype(current_workpiece, recipe.req_bar))
 				has_required_item = TRUE

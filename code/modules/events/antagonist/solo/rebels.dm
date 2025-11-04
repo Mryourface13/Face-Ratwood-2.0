@@ -20,7 +20,7 @@
 	typepath = /datum/round_event/antagonist/solo/rebel
 	antag_datum = /datum/antagonist/prebel/head
 
-	weight = 10
+	weight = 1
 
 	restricted_roles = list(
 		"Grand Duke",
@@ -43,7 +43,7 @@
 		"Princess",
 		"Hand",
 		"Magos Thrall",
-		"Servant",
+		"Steward",
 		"Court Physician",
 		"Town Elder",
 		"Captain",

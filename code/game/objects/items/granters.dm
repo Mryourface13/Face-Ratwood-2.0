@@ -315,6 +315,13 @@
 	icon_state ="scrolldarkred"
 	remarks = list("Altitudinem revelat..", "Cuius pedes in aere volant..", "In levitate audacia..")
 
+/obj/item/book/granter/spell/blackstone/familiar //Find Familiar Scroll
+	name = "Scroll of Find Familiar"
+	spell = /obj/effect/proc_holder/spell/self/findfamiliar
+	spellname = "Find Familiar"
+	icon_state ="scrolldarkred"
+	oneuse = FALSE
+
 //scroll for giving the reader 3 spell points, this should be dungeon loot
 /obj/item/book/granter/spell_points
 	name = "Arcyne Insight"
@@ -324,6 +331,7 @@
 	var/spellpoints = 3
 	drop_sound = 'sound/foley/dropsound/paper_drop.ogg'
 	pickup_sound =  'sound/blank.ogg'
+	var/spellpoints = 3
 
 /obj/item/book/granter/spell_points/on_reading_finished(mob/user)
 	var/arcaneskill = user.get_skill_level(/datum/skill/magic/arcane)

@@ -134,7 +134,8 @@
 				say("NO MONEY NO HONEY!")
 				return
 
-
+		record_round_statistic(STATS_PEDDLER_REVENUE, held_items[O]["PRICE"])
+		// remove one instance and deliver it
 		held_items -= O
 		if(!usr.put_in_hands(O))
 			O.forceMove(get_turf(src))
@@ -414,7 +415,21 @@
         held_items[Q]["NAME"] = Q.name
         held_items[Q]["PRICE"] = 100
 
-    update_icon()
+	// Add fancy keys with a price of 100
+	for (var/Y in list(/obj/item/roguekey/fancyroomi, /obj/item/roguekey/fancyroomii, /obj/item/roguekey/fancyroomiii, /obj/item/roguekey/fancyroomiv, /obj/item/roguekey/fancyroomv))
+		var/obj/Q = new Y(src)
+		held_items[Q] = list()
+		held_items[Q]["NAME"] = Q.name
+		held_items[Q]["PRICE"] = 100
+
+	// Add penthouse suite key
+	for (var/Z in list(/obj/item/roguekey/roomhunt))
+		var/obj/F = new Z(src)
+		held_items[F] = list()
+		held_items[F]["NAME"] = F.name
+		held_items[F]["PRICE"] = 200
+
+	update_icon()
 
 
 
@@ -428,4 +443,16 @@
 		held_items[P] = list()
 		held_items[P]["NAME"] = P.name
 		held_items[P]["PRICE"] = 10
+	update_icon()
+
+/obj/structure/roguemachine/vendor/stablemaster
+	keycontrol = "stablemaster"
+
+/obj/structure/roguemachine/vendor/stablemaster/Initialize()
+	. = ..()
+	for(var/X in list(/obj/item/roguekey/apartments/stablemaster_1,/obj/item/roguekey/apartments/stablemaster_2,/obj/item/roguekey/apartments/stablemaster_3,/obj/item/roguekey/apartments/stablemaster_4,/obj/item/roguekey/apartments/stablemaster_5))
+		var/obj/P = new X(src)
+		held_items[P] = list()
+		held_items[P]["NAME"] = P.name
+		held_items[P]["PRICE"] = 30
 	update_icon()

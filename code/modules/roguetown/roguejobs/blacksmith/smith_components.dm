@@ -208,7 +208,7 @@
 	material_quality = floor(material_quality/current_recipe.num_of_materials)-4
 	skill_quality = floor((skill_quality/current_recipe.num_of_materials)/1500)+material_quality
 	skill_quality -= floor(numberofhits * 0.25)
-
+	
 	var/modifier
 	switch(skill_quality)
 		if(BLACKSMITH_LEVEL_MIN to BLACKSMITH_LEVEL_SPOIL)
@@ -227,6 +227,7 @@
 			modifier = 1.2
 		if(BLACKSMITH_LEVEL_LEGENDARY to BLACKSMITH_LEVEL_MAX)
 			modifier = 1.3
+			record_round_statistic(STATS_MASTERWORKS_FORGED)
 
 	if(!modifier)
 		return

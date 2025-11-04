@@ -63,6 +63,8 @@
 	new /obj/item/magic/elemental/shard(deathspot)
 	new /obj/item/magic/elemental/mote(deathspot)
 	new /obj/item/magic/elemental/mote(deathspot)
+	new /obj/item/magic/elemental/mote(deathspot)
+	new /obj/item/magic/elemental/mote(deathspot)
 	new /obj/item/magic/melded/t1(deathspot)
 	update_icon()
 	spill_embedded_objects()
@@ -163,6 +165,7 @@
 		shaken.Paralyze(50)
 		var/obj/structure/flora/rock/giant_rock = new(get_turf(shaken))
 		QDEL_IN(giant_rock, 200)
+	return TRUE
 
 /mob/living/simple_animal/hostile/retaliate/rogue/elemental/behemoth/proc/yeet(target)
 	var/atom/throw_target = get_edge_target_turf(src, get_dir(src, target)) //ill be real I got no idea why this worked.

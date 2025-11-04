@@ -181,35 +181,70 @@
 				message_out = span_info("A choral sound comes from above and [target] is healed!")
 				message_self = span_notice("I am bathed in healing choral hymns!")
 
-		var/healing = 2.5
-		if (conditional_buff)
-			to_chat(user, "Channeling my patron's power is easier in these conditions!")
-			healing += situational_bonus
+	if(!isliving(targets[1]))
+		revert_cast()
+		return FALSE
 
-		if(ishuman(target))
-			var/mob/living/carbon/human/H = target
-			var/no_embeds = TRUE
-			var/list/embeds = H.get_embedded_objects()
-			if(length(embeds))
-				for(var/object in embeds)
-					if(!istype(object, /obj/item/natural/worms/leech))	//Leeches and surgical cheeles are made an exception.
-						no_embeds = FALSE
-			else
-				no_embeds = TRUE
-			if(no_embeds)
-				target.apply_status_effect(/datum/status_effect/buff/healing, healing)
-			else
-				message_out = span_warning("The wounds tear and rip around the embedded objects!")
-				message_self = span_warning("Agonising pain shoots through your body as magycks try to sew around the embedded objects!")
-				H.adjustBruteLoss(20)
-				playsound(target, 'sound/combat/dismemberment/dismem (2).ogg', 100)
-				H.emote("agony")
-		else
-			target.apply_status_effect(/datum/status_effect/buff/healing, healing)
-		target.visible_message(message_out, message_self)
+	var/mob/living/target = targets[1]
+
+	if(HAS_TRAIT(target, TRAIT_PSYDONITE))
+		target.visible_message(span_info("[target] stirs for a moment, the miracle dissipates."), span_notice("A dull warmth swells in your heart, only to fade as quickly as it arrived."))
+		user.playsound_local(user, 'sound/magic/PSY.ogg', 100, FALSE, -1)
+		playsound(target, 'sound/magic/PSY.ogg', 100, FALSE, -1)
+		return FALSE
+
+	if(user.patron?.undead_hater && (target.mob_biotypes & MOB_UNDEAD))
+		target.visible_message(span_danger("[target] is burned by holy light!"), span_userdanger("I'm burned by holy light!"))
+		target.adjustFireLoss(10)
+		target.fire_act(1, 10)
 		return TRUE
-	revert_cast()
-	return FALSE
+
+	if(target.has_status_effect(/datum/status_effect/buff/healing))
+		to_chat(user, span_warning("They are already under the effects of a healing aura!"))
+		revert_cast()
+		return FALSE
+
+	var/conditional_buff = FALSE
+	var/situational_bonus = 1
+	var/is_inhumen = FALSE
+
+	var/message_out = span_info("A choral sound comes from above and [target] is healed!")
+	var/message_self = span_notice("I am bathed in healing choral hymns!")
+		
+	user.patron.on_lesser_heal(user, target, &message_out, &message_self, &conditional_buff, &situational_bonus, &is_inhumen)
+
+	var/healing = 2.5
+
+	if(conditional_buff)
+		to_chat(user, "Channeling my patron's power is easier in these conditions!")
+		healing += situational_bonus
+
+	if(!ishuman(target))
+		target.apply_status_effect(/datum/status_effect/buff/healing, healing, is_inhumen)
+		return TRUE
+
+	var/mob/living/carbon/human/human = target
+	var/no_embeds = TRUE
+	var/list/embeds = human.get_embedded_objects()
+
+	for(var/object in embeds)
+		if(istype(object, /obj/item/natural/worms/leech)) // Leeches and surgical cheeles are made an exception.
+			continue
+
+		no_embeds = FALSE
+		break
+
+	if(!no_embeds)
+		target.visible_message("The wounds tear and rip around the embedded objects!", "Agonising pain shoots through your body as magycks try to sew around the embedded objects!")
+		human.adjustBruteLoss(20)
+		playsound(target, 'sound/combat/dismemberment/dismem (2).ogg', 100)
+		human.emote("agony")
+		return FALSE
+
+	target.apply_status_effect(/datum/status_effect/buff/healing, healing)
+	target.visible_message(message_out, message_self)
+
+	return TRUE
 
 // Miracle
 /obj/effect/proc_holder/spell/invoked/heal
@@ -260,7 +295,7 @@
 
 /obj/effect/proc_holder/spell/invoked/regression
 	name = "Regression"
-	desc = "Rewinds the target wounds, Healing them over time. If target is under Stasis heals them twice as much."
+	desc = "Rewinds the target wounds, Healing them over time."
 	overlay_state = "regression"
 	releasedrain = 30
 	chargedrain = 0
@@ -282,8 +317,6 @@
 		var/mob/living/target = targets[1]
 		target.visible_message(span_info("Order filled magic rewind [target]'s wounds!"), span_notice("My wounds, undone!"))
 		var/healing = 2.5
-		if(target.has_status_effect(/datum/status_effect/buff/stasis))
-			healing += 2.5
 		target.apply_status_effect(/datum/status_effect/buff/healing, healing)
 		return TRUE
 	revert_cast()
@@ -349,6 +382,7 @@
 	var/turf/origin
 	var/firestacks = 0
 	var/divinefirestacks = 0
+	var/sunderfirestacks = 0
 	var/blood = 0
 	miracle = TRUE
 	devotion_cost = 30
@@ -363,9 +397,13 @@
 		oxy = target.getOxyLoss()
 		toxin = target.getToxLoss()
 		origin = get_turf(target)
-		firestacks = target.fire_stacks
-		divinefirestacks = target.divine_fire_stacks
 		blood = target.blood_volume
+		var/datum/status_effect/fire_handler/fire_stacks/fire_status = target.has_status_effect(/datum/status_effect/fire_handler/fire_stacks)
+		firestacks = fire_status?.stacks
+		var/datum/status_effect/fire_handler/fire_stacks/sunder/sunder_status = target.has_status_effect(/datum/status_effect/fire_handler/fire_stacks/sunder)
+		sunderfirestacks = sunder_status?.stacks
+		var/datum/status_effect/fire_handler/fire_stacks/divine/divine_status = target.has_status_effect(/datum/status_effect/fire_handler/fire_stacks/divine)
+		divinefirestacks = divine_status?.stacks
 		to_chat(target, span_warning("I feel a part of me was left behind..."))
 		play_indicator(target,'icons/mob/overhead_effects.dmi', "timestop", 100, OBJ_LAYER)
 		addtimer(CALLBACK(src, PROC_REF(remove_buff), target), wait = 10 SECONDS)
@@ -374,12 +412,13 @@
 
 /obj/effect/proc_holder/spell/invoked/stasis/proc/remove_buff(mob/living/carbon/target)
 	do_teleport(target, origin, no_effects=TRUE)
-	target.adjust_fire_stacks(target.fire_stacks*-1 + firestacks)
-	target.adjust_divine_fire_stacks(target.divine_fire_stacks*-1 + divinefirestacks)
 	var/brutenew = target.getBruteLoss()
 	var/burnnew = target.getFireLoss()
 	var/oxynew = target.getOxyLoss()
 	var/toxinnew = target.getToxLoss()
+	target.adjust_fire_stacks(firestacks)
+	target.adjust_fire_stacks(sunderfirestacks, /datum/status_effect/fire_handler/fire_stacks/sunder)
+	target.adjust_fire_stacks(divinefirestacks, /datum/status_effect/fire_handler/fire_stacks/divine)
 	if(target.has_status_effect(/datum/status_effect/buff/convergence))
 		if(brutenew>brute)
 			target.adjustBruteLoss(brutenew*-1 + brute)
@@ -427,9 +466,9 @@
 	update_icon()
 	return
 
-//Universal miracle T3 miracle.
-//Instantly heals all wounds & damage on a selected limb.
-//Long CD (so a Medical class would still outpace this if there's more than one patient to heal)
+// Bishop only miracle - This used to be T3 only but is too powerful and ate into apothecary's niche.
+// Instantly heals all wounds & damage on a selected limb.
+// Long CD (so a Medical class would still outpace this if there's more than one patient to heal)
 /obj/effect/proc_holder/spell/invoked/wound_heal
 	name = "Wound Miracle"
 	desc = "Heals all wounds on a targeted limb."

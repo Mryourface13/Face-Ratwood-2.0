@@ -19,15 +19,6 @@
 				return 0
 	return ..()
 
-/mob/living/carbon/human/mob_has_gravity()
-	. = ..()
-	if(!.)
-		if(mob_negates_gravity())
-			. = 1
-
-/mob/living/carbon/human/mob_negates_gravity()
-	return ((shoes && shoes.negates_gravity()) || (dna.species.negates_gravity(src)))
-
 /mob/living/carbon/human/Move(NewLoc, direct)
 /*	if(fixedeye || tempfixeye)
 		switch(dir)
@@ -46,8 +37,6 @@
 
 	. = ..()
 	if(loc == NewLoc)
-		if(!has_gravity(loc))
-			return
 
 		if(hostage) // If we have a hostage.
 			hostage.hostagetaker = null
