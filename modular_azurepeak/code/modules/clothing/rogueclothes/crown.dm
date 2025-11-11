@@ -44,15 +44,13 @@
 			usedcolor = user.voicecolor_override
 		user.whisper(input_text)
 		var/list/tspans = list()
-		if(user.client.patreonlevel() >= GLOB.patreonsaylevel)
-			tspans |= SPAN_PATREON_SAY
 		if(length(input_text) > 100)
 			input_text = "<small>[input_text]</small>"
 		if(!garrisonline)
 			for(var/obj/structure/roguemachine/scomm/S in SSroguemachine.scomm_machines)
-				S.repeat_message(input_text, src, usedcolor, tspans = tspans)
+				S.repeat_message(input_text, src, usedcolor)
 			for(var/obj/item/scomstone/S in SSroguemachine.scomm_machines)
-				S.repeat_message(input_text, src, usedcolor, tspans = tspans)
+				S.repeat_message(input_text, src, usedcolor)
 			for(var/obj/item/listenstone/S in SSroguemachine.scomm_machines)
 				S.repeat_message(input_text, src, usedcolor)
 
