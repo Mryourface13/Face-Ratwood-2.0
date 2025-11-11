@@ -80,7 +80,7 @@
 	populate_contents = list(
 		/obj/item/alch/viscera,
 		/obj/item/alch/viscera,
-		/obj/item/alch/viscera.
+		/obj/item/alch/viscera,
 		/obj/item/alch/urtica,
 		/obj/item/alch/taraxacum,
 		/obj/item/alch/puresalt,
