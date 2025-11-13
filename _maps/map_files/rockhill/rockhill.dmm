@@ -48508,9 +48508,6 @@
 /area/rogue/indoors/town/magician)
 "pvG" = (
 /obj/structure/fluff/railing/border{
-	pixel_y = -8
-	},
-/obj/structure/fluff/railing/border{
 	dir = 5;
 	pixel_x = -32;
 	pixel_y = -32
