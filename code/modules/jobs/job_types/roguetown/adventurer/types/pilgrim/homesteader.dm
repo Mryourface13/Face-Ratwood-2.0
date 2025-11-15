@@ -48,7 +48,7 @@
 	"Tradesperson",
 	"Villager",
 	"Woodsman", "Woodswoman")
-	var/cosmetic_choice = input(H, "Select your cosmetic title!", "Cosmetic Titles") as anything in cosmetic_titles
+	var/cosmetic_choice = input(H, "Select your cosmetic title.", "Cosmetic Titles") as anything in cosmetic_titles
 
 	switch(cosmetic_choice)
 		if("Devotee")
@@ -145,7 +145,7 @@
 
 	// STAT PACK SELECTION
 	var/stat_packs = list("Agile", "Bookworm", "Toned", "All-Rounded")
-	var/stat_choice = input(H, "Select your stat focus.", "Stat Pack Selection") as anything in stat_packs
+	var/stat_choice = input(H, "Select your stat focus. [1/1]", "Stat Pack Selection") as anything in stat_packs
 
 	switch(stat_choice)
 		if("Agile")
@@ -172,43 +172,73 @@
 			to_chat(H, span_notice("You are balanced in all aspects."))
 			// No stat changes for all-rounded
 
-	// SPECIALTY SELECTION
-	var/specialties = list("Homesteading", "Charlatan")
-	var/specialty_choice = input(H, "Select your specialty.", "Specialty Selection") as anything in specialties
+	// INVENTORY SELECTION
+	// Bronze and Copper weapons and armor - ALL AVAILABLE
+	var/bronze_copper_items = list(
+		"Bronze Arming Sword" = /obj/item/rogueweapon/sword/bronze,
+		"Bronze Axe" = /obj/item/rogueweapon/stoneaxe/woodcut/bronze,
+		"Bronze Dagger" = /obj/item/rogueweapon/huntingknife/bronze,
+		"Bronze Katar" = /obj/item/rogueweapon/katar/bronze,
+		"Bronze Knife" = /obj/item/rogueweapon/huntingknife/bronze,
+		"Bronze Knuckles" = /obj/item/rogueweapon/knuckles/bronzeknuckles,
+		"Bronze Mace" = /obj/item/rogueweapon/mace/bronze,
+		"Bronze Spear" = /obj/item/rogueweapon/spear/bronze,
+		"Bronze Whip" = /obj/item/rogueweapon/whip/bronze,
 
-	switch(specialty_choice)
-		if("Homesteading")
-			to_chat(H, span_notice("You embrace the homesteading life."))
+		"Copper Cudgel" = /obj/item/rogueweapon/mace/cudgel/copper,
+		"Copper Dagger" = /obj/item/rogueweapon/huntingknife/copper,
+		"Copper Heart Protector" = /obj/item/clothing/suit/roguetown/armor/plate/half/copper,
+		"Copper Hatchet" = /obj/item/rogueweapon/stoneaxe/handaxe/copper,
+		"Copper Knife" = /obj/item/rogueweapon/huntingknife/copper,
+		"Copper Lamellar Cap" = /obj/item/clothing/head/roguetown/helmet/coppercap,
+		"Copper Messer" = /obj/item/rogueweapon/sword/short/messer/copper,
+		"Copper Rhomphaia" = /obj/item/rogueweapon/sword/long/rhomphaia/copper,
+		"Copper Spear" = /obj/item/rogueweapon/spear/stone/copper,
 
-			if(H.mind)
-				H.mind.special_items["Hammer"] = /obj/item/rogueweapon/hammer/steel
-				H.mind.special_items["Sheathe"] = /obj/item/rogueweapon/scabbard/sheath
-				H.mind.special_items["Bronze Knife"] = /obj/item/rogueweapon/huntingknife/bronze
-				H.mind.special_items["Bronze Axe"] = /obj/item/rogueweapon/stoneaxe/woodcut/bronze
-				H.mind.special_items["Barber's Innocuous Bag"] = /obj/item/storage/belt/rogue/surgery_bag/full
-				H.mind.special_items["Trusty Pick"] = /obj/item/rogueweapon/pick
-				H.mind.special_items["Hoe"] = /obj/item/rogueweapon/hoe
-				H.mind.special_items["Tuneful Instrument"] = pick(subtypesof(/obj/item/rogue/instrument))
-				H.mind.special_items["Fishing Rod"] = /obj/item/fishingrod/crafted
-				H.mind.special_items["Pan for Frying"] = /obj/item/cooking/pan
-				H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)
+		"Leather Sheath" = /obj/item/rogueweapon/scabbard/sheath,
+		"Scabbard" = /obj/item/rogueweapon/scabbard/sword
+	)
 
+	// Utility and Knowledge items
+	var/utility_knowledge_items = list(
+		"Bedroll" = /obj/item/bedroll,
+		"Chisel" = /obj/item/rogueweapon/chisel,
+		"Cooking Pan" = /obj/item/cooking/pan,
+		"Fishing Rod" = /obj/item/fishingrod/crafted,
+		"Folding Table" = /obj/item/contraption/folding_table_stored,
+		"Hammer" = /obj/item/rogueweapon/hammer/steel,
+		"Handsaw" = /obj/item/rogueweapon/handsaw,
+		"Hoe" = /obj/item/rogueweapon/hoe,
+		"Lantern" = /obj/item/flashlight/flare/torch/lantern,
+		"Lockpick Ring" = /obj/item/lockpickring/mundane,
+		"Millstone" = /obj/item/millstone,
+		"Musical Instrument" = pick(subtypesof(/obj/item/rogue/instrument)),
+		"Pick" = /obj/item/rogueweapon/pick,
+		"Rope" = /obj/item/rope,
+		"Shovel" = /obj/item/rogueweapon/shovel/small,
+		"Surgery Bag" = /obj/item/storage/belt/rogue/surgery_bag/full,
 
-		if("Charlatan")
-			to_chat(H, span_notice("You are a smooth-talking charlatan, versed in deception and clever words."))
+		"Diagnose Spell" = /obj/effect/proc_holder/spell/invoked/diagnose/secular,
+		"Find Familiar Spell" = /obj/effect/proc_holder/spell/self/findfamiliar,
+		"Take Apprentice Spell" = /obj/effect/proc_holder/spell/invoked/takeapprentice
+	)
 
-			if(H.mind)
-				H.mind.special_items["Sheathe"] = /obj/item/rogueweapon/scabbard/sheath
-				H.mind.special_items["Bronze Dagger"] = /obj/item/rogueweapon/huntingknife/bronze
-				H.mind.special_items["Lockpick Ring"] = /obj/item/lockpickring/mundane
-				H.mind.special_items["[pick("Good", "Bad", "Normal")] Day's Wine"] = /obj/item/reagent_containers/glass/bottle/rogue/wine
-				H.mind.special_items["Coin Purse"] = /obj/item/storage/belt/rogue/pouch/coins/poor
+	if(H.mind)
+		// Select three bronze/copper weapons and armor
+		for(var/i in 1 to 3)
+			var/bronze_copper_name = input(H, "Choose a bronze or copper tools [i]/3.", "Bronze/Copper Items") as anything in bronze_copper_items
+			if(bronze_copper_name)
+				H.mind.special_items[bronze_copper_name] = bronze_copper_items[bronze_copper_name]
+				if(bronze_copper_name in bronze_copper_items)
+					bronze_copper_items -= bronze_copper_name
 
-			
-			// Boost sneaking, stealing, and lockpicking
-			H.adjust_skillrank_up_to(/datum/skill/misc/sneaking, SKILL_LEVEL_JOURNEYMAN, TRUE)
-			H.adjust_skillrank_up_to(/datum/skill/misc/stealing, SKILL_LEVEL_JOURNEYMAN, TRUE)
-			H.adjust_skillrank_up_to(/datum/skill/misc/lockpicking, SKILL_LEVEL_JOURNEYMAN, TRUE)
+		// Select three utility/knowledge items
+		for(var/i in 1 to 5)
+			var/utility_name = input(H, "Choose a Utility Apparatus or Knowledge item [i]/5.", "Utility & Knowledge") as anything in utility_knowledge_items
+			if(utility_name)
+				H.mind.special_items[utility_name] = utility_knowledge_items[utility_name]
+				if(utility_name in utility_knowledge_items)
+					utility_knowledge_items -= utility_name
 
 // Still random clothing... meh. Get your loadout ones.
 	head = pick(/obj/item/clothing/head/roguetown/hatfur,
@@ -309,7 +339,7 @@
 		)
 
 		// Select one skill to EXPERT
-		var/expert_skill_name = input(H, "Choose one skill to EXPERT.", "Skill Selection") as anything in misc_skills + labor_skills + craft_skills
+		var/expert_skill_name = input(H, "Choose one skill to EXPERT. [1/1]", "Skill Selection") as anything in misc_skills + labor_skills + craft_skills
 		if(expert_skill_name)
 			H.adjust_skillrank_up_to(misc_skills[expert_skill_name] || labor_skills[expert_skill_name] || craft_skills[expert_skill_name], SKILL_LEVEL_EXPERT, TRUE)
 			if(expert_skill_name in misc_skills)
@@ -320,7 +350,7 @@
 				craft_skills -= expert_skill_name 
 
 		// Select one COMBAT skill to JOURNEYMAN
-		var/journeyman_combat_name = input(H, "Choose a COMBAT skill to JOURNEYMAN.", "Skill Selection") as anything in combat_skills
+		var/journeyman_combat_name = input(H, "Choose a COMBAT skill to JOURNEYMAN. [1/1]", "Skill Selection") as anything in combat_skills
 		if(journeyman_combat_name)
 			H.adjust_skillrank_up_to(combat_skills[journeyman_combat_name], SKILL_LEVEL_JOURNEYMAN, TRUE)
 			if(journeyman_combat_name in combat_skills)
@@ -328,7 +358,7 @@
 
 		// Select two MISC/LABOR/CRAFT skills to JOURNEYMAN
 		for(var/i in 1 to 2)
-			var/journeyman_name = input(H, "Choose a MISC/LABOR/CRAFT skill to JOURNEYMAN.", "Skill Selection") as anything in misc_skills + labor_skills + craft_skills
+			var/journeyman_name = input(H, "Choose a MISC/LABOR/CRAFT skill to JOURNEYMAN. [i]/2", "Skill Selection") as anything in misc_skills + labor_skills + craft_skills
 			if(journeyman_name)
 				H.adjust_skillrank_up_to(misc_skills[journeyman_name] || labor_skills[journeyman_name] || craft_skills[journeyman_name], SKILL_LEVEL_JOURNEYMAN, TRUE)
 				if(journeyman_name in misc_skills)
@@ -340,7 +370,7 @@
 
 		// Select three skills to APPRENTICE
 		for(var/i in 1 to 3)
-			var/apprentice_name = input(H, "Choose a skill to APPRENTICE.", "Skill Selection") as anything in misc_skills + labor_skills + craft_skills + combat_skills
+			var/apprentice_name = input(H, "Choose a skill to APPRENTICE. [i]/3", "Skill Selection") as anything in misc_skills + labor_skills + craft_skills + combat_skills
 			if(apprentice_name)
 				H.adjust_skillrank_up_to(misc_skills[apprentice_name] || labor_skills[apprentice_name] || craft_skills[apprentice_name] || combat_skills[apprentice_name], SKILL_LEVEL_APPRENTICE, TRUE)
 				if(apprentice_name in misc_skills)
@@ -354,7 +384,7 @@
 
 		// Select four skills to NOVICE
 		for(var/i in 1 to 4)
-			var/novice_name = input(H, "Choose a skill to NOVICE.", "Skill Selection") as anything in misc_skills + labor_skills + craft_skills + combat_skills
+			var/novice_name = input(H, "Choose a skill to NOVICE. [i]/4", "Skill Selection") as anything in misc_skills + labor_skills + craft_skills + combat_skills
 			if(novice_name)
 				H.adjust_skillrank_up_to(misc_skills[novice_name] || labor_skills[novice_name] || craft_skills[novice_name] || combat_skills[novice_name], SKILL_LEVEL_NOVICE, TRUE)
 				if(novice_name in misc_skills)
@@ -394,7 +424,7 @@
 		)
 
 		// Select one skill-unlocking trait
-		var/skill_trait_name = input(H, "Choose one skill-unlocking trait.", "Trait Selection") as anything in skill_unlock_traits
+		var/skill_trait_name = input(H, "Choose one skill-unlocking trait. [1/1]", "Trait Selection") as anything in skill_unlock_traits
 		if(skill_trait_name)
 			ADD_TRAIT(H, skill_unlock_traits[skill_trait_name], TRAIT_GENERIC)
 			if(skill_trait_name in skill_unlock_traits)
