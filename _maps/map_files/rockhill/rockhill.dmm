@@ -2694,6 +2694,14 @@
 "aSH" = (
 /turf/closed/wall/mineral/rogue/decostone/cand,
 /area/rogue/under/cavewet)
+"aST" = (
+/obj/structure/rack/rogue/shelf/biggest,
+/obj/item/roguegem/violet,
+/turf/open/floor/carpet/purple,
+/area/rogue/outdoors/exposed/bath/vault{
+	droning_sound_dusk = null;
+	droning_sound_night = null
+	})
 "aSV" = (
 /obj/structure/flora/roguegrass/water,
 /obj/effect/wisp/prestidigitation{
@@ -6056,9 +6064,11 @@
 	keylock = 1;
 	lockid = "garrison"
 	},
-/obj/item/reagent_containers/glass/bottle/alchemical/healthpotnew,
-/obj/item/reagent_containers/glass/bottle/alchemical/healthpotnew,
-/obj/item/reagent_containers/glass/bottle/alchemical/healthpotnew,
+/obj/item/reagent_containers/glass/bottle/alchemical/healthpot,
+/obj/item/reagent_containers/glass/bottle/alchemical/healthpot,
+/obj/item/reagent_containers/glass/bottle/alchemical/healthpot,
+/obj/item/reagent_containers/glass/bottle/alchemical/healthpot,
+/obj/item/reagent_containers/glass/bottle/alchemical/healthpot,
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/garrison)
 "bVr" = (
@@ -7738,8 +7748,6 @@
 /area/rogue/indoors/town/tavern)
 "cxX" = (
 /obj/structure/table/wood/poor,
-/obj/item/scomstone/bad/garrison,
-/obj/item/scomstone/bad/garrison,
 /obj/item/scomstone/bad/garrison,
 /obj/item/scomstone/bad/garrison,
 /obj/item/scomstone/bad/garrison,
@@ -14066,9 +14074,9 @@
 	keylock = 1;
 	lockid = "armory"
 	},
-/obj/item/clothing/suit/roguetown/armor/gambeson/light,
-/obj/item/clothing/suit/roguetown/armor/gambeson/light,
-/obj/item/clothing/suit/roguetown/armor/gambeson/light,
+/obj/item/clothing/suit/roguetown/armor/gambeson,
+/obj/item/clothing/suit/roguetown/armor/gambeson,
+/obj/item/clothing/suit/roguetown/armor/gambeson,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/garrison)
 "esi" = (
@@ -27639,6 +27647,12 @@
 /obj/structure/fluff/railing/border,
 /turf/open/water/swamp/deep,
 /area/rogue/outdoors/bograt/west)
+"iDq" = (
+/obj/effect/landmark/start/clerk,
+/turf/open/floor/rogue/tile/masonic{
+	dir = 4
+	},
+/area/rogue/indoors/town/manor/rockhill)
 "iDu" = (
 /turf/closed/wall/mineral/rogue/wooddark/horizontal,
 /area/rogue/indoors/town)
@@ -28105,7 +28119,6 @@
 	name = "Love Nest"
 	},
 /obj/item/bedsheet/rogue/fabric_double,
-/obj/effect/landmark/start/steward,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor/rockhill)
 "iJA" = (
@@ -31534,6 +31547,7 @@
 /obj/structure/fluff/walldeco/customflag/rockhill{
 	pixel_y = 32
 	},
+/obj/effect/landmark/start/steward,
 /turf/open/floor/rogue/tile/masonic{
 	dir = 1
 	},
@@ -39474,6 +39488,9 @@
 /obj/item/rope/chain,
 /obj/item/flashlight/flare/torch/lantern,
 /obj/item/flashlight/flare/torch/lantern,
+/obj/item/flashlight/flare/torch/lantern,
+/obj/item/flashlight/flare/torch/lantern,
+/obj/item/flashlight/flare/torch/lantern,
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/garrison)
 "mrm" = (
@@ -40512,6 +40529,9 @@
 	lockid = "armory"
 	},
 /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow,
+/obj/item/gun/ballistic/revolver/grenadelauncher/crossbow,
+/obj/item/quiver/bolts,
+/obj/item/quiver/bolts,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/garrison)
 "mJD" = (
@@ -41699,6 +41719,16 @@
 /obj/structure/spider/stickyweb,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town)
+"nfp" = (
+/obj/structure/rack/rogue/shelf/biggest,
+/obj/item/reagent_containers/glass/cup/golden{
+	pixel_x = 8
+	},
+/turf/open/floor/carpet/purple,
+/area/rogue/outdoors/exposed/bath/vault{
+	droning_sound_dusk = null;
+	droning_sound_night = null
+	})
 "nfE" = (
 /obj/structure/chair/bench/couchablack,
 /obj/machinery/light/roguestreet/orange/walllamp{
@@ -44646,6 +44676,11 @@
 "oeu" = (
 /obj/item/book/rogue/law,
 /obj/structure/rack/rogue,
+/obj/item/book/rogue/law,
+/obj/item/book/rogue/law,
+/obj/item/book/rogue/law,
+/obj/item/book/rogue/law,
+/obj/item/book/rogue/law,
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/garrison)
 "oev" = (
@@ -48117,6 +48152,7 @@
 /obj/machinery/light/rogue/wallfire/candle{
 	pixel_y = -32
 	},
+/obj/item/rope/chain,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/garrison)
 "pkj" = (
@@ -61266,7 +61302,6 @@
 	pixel_x = 10
 	},
 /obj/machinery/light/rogue/wallfire/candle,
-/obj/effect/landmark/start/clerk,
 /turf/open/floor/rogue/wood,
 /area/rogue/under/town/basement/keep)
 "tyH" = (
@@ -64566,7 +64601,6 @@
 /obj/structure/fluff/walldeco/church/line{
 	dir = 8
 	},
-/obj/effect/landmark/start/clerk,
 /obj/structure/chair/wood/rogue/fancy{
 	dir = 4
 	},
@@ -70377,7 +70411,6 @@
 /area/rogue/indoors)
 "wye" = (
 /obj/structure/chair/stool/rogue,
-/obj/effect/landmark/start/steward,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor/rockhill)
 "wyg" = (
@@ -75648,6 +75681,12 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/rtfield/rockhill/above)
+"yhS" = (
+/turf/closed/wall/mineral/rogue/stone/moss,
+/area/rogue/outdoors/exposed/bath/vault{
+	droning_sound_dusk = null;
+	droning_sound_night = null
+	})
 "yhT" = (
 /obj/structure/floordoor/gatehatch/outer,
 /obj/structure/fluff/railing/border{
@@ -132116,12 +132155,12 @@ whb
 whb
 whb
 whb
+cTA
+cTA
+cTA
+cTA
+cTA
 whb
-cTA
-cTA
-cTA
-cTA
-cTA
 whb
 whb
 whb
@@ -132547,7 +132586,6 @@ whb
 whb
 whb
 whb
-whb
 cTA
 cTA
 nAq
@@ -132556,9 +132594,10 @@ cEK
 cTA
 cTA
 whb
-whb
-whb
-whb
+lke
+lke
+lke
+lke
 whb
 xrC
 xrC
@@ -132979,7 +133018,6 @@ whb
 whb
 whb
 whb
-whb
 cTA
 ycv
 cEK
@@ -132989,7 +133027,8 @@ aKH
 cTA
 lke
 lke
-lke
+pRC
+oMw
 lke
 whb
 xrC
@@ -133411,7 +133450,6 @@ whb
 whb
 whb
 whb
-whb
 cTA
 cEK
 cEK
@@ -133420,8 +133458,9 @@ cEK
 fJP
 cTA
 lke
-pRC
-oMw
+aST
+rSw
+rSw
 lke
 lke
 xrC
@@ -133843,7 +133882,6 @@ whb
 whb
 whb
 whb
-whb
 cTA
 aKH
 cEK
@@ -133852,6 +133890,7 @@ cEK
 aKH
 cTA
 vhJ
+rSw
 rSw
 rSw
 fLW
@@ -134275,7 +134314,6 @@ whb
 whb
 whb
 whb
-whb
 cTA
 ujs
 cEK
@@ -134284,8 +134322,9 @@ cEK
 cEK
 cTA
 lke
-mzQ
-pnx
+nfp
+rSw
+rSw
 lke
 jJY
 wAU
@@ -134707,7 +134746,6 @@ whb
 whb
 whb
 whb
-whb
 cTA
 pqD
 cEK
@@ -134717,7 +134755,8 @@ aOx
 cTA
 lke
 lke
-lke
+mzQ
+pnx
 lke
 xrC
 scK
@@ -135139,7 +135178,6 @@ whb
 whb
 whb
 whb
-whb
 cTA
 cTA
 wDf
@@ -135148,9 +135186,10 @@ cEK
 cTA
 cTA
 whb
-nvH
-nvH
-nvH
+lke
+lke
+lke
+yhS
 nvH
 scK
 kmW
@@ -135572,7 +135611,7 @@ whb
 whb
 whb
 whb
-whb
+cTA
 cTA
 cTA
 bFT
@@ -365366,7 +365405,7 @@ idR
 bzD
 uOL
 jOo
-rTK
+iDq
 uOL
 stI
 oif
