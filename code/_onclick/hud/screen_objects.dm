@@ -2016,15 +2016,12 @@
 	animate(fill, time = duration)
 
 /atom/movable/screen/bloodpool/Click(location,control,params)
-	// Only respond to explicit left-clicks on this HUD element.
 	var/list/modifiers = params2list(params)
-	// If shift+left was used, open the examine UI instead of triggering the action.
 	if(modifiers["left"] && modifiers["shift"])
 		examine_ui(usr)
 		return FALSE
 	if(!modifiers["left"])
 		return
-	// Respect click cooldown like other HUD elements
 	if(usr.next_click > world.time)
 		return
 	usr.next_click = world.time + 1
@@ -2051,7 +2048,6 @@
 	src.parent_screen = parent_screen
 
 /atom/movable/screen/bloodpool_maskpart/Click(location, control, params)
-	// Forward clicks on mask parts (fill, background, etc.) to the parent bloodpool
 	if(parent_screen)
 		return parent_screen.Click(location, control, params)
 	return FALSE
