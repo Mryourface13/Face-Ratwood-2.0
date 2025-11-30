@@ -28,7 +28,7 @@
 		/datum/advclass/veteran/scout,
 		/datum/advclass/veteran/spy
 	)
-	job_traits = list(TRAIT_STEELHEARTED, TRAIT_GOODTRAINER)
+	job_traits = list(TRAIT_STEELHEARTED)
 
 /datum/outfit/job/roguetown/captain
 	job_bitflag = BITFLAG_ROYALTY | BITFLAG_GARRISON	//Not a noble per-say but not really garrison either. So both, you are a courtier of sorts afterall + combat
