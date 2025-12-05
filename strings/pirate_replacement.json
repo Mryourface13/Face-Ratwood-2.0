@@ -2,6 +2,8 @@
     "full": {
 		"i'm": "i be",
 		"you're": "ye be",
+		"we're": "we be",
+		"they're": "they be",
 		"for": "fer",
 		"to": "ter",
 		"are": "be",
@@ -105,6 +107,10 @@
     },
 
 	"multiword": {
+		"you are": "ye be",
+		"i am": "I be",
+		"we are": "we be",
+		"they are": "they be",
 		"kill him": "blow 'im down",
 		"kill her": "blow 'er down",
 		"kill them": "blow 'em down",
