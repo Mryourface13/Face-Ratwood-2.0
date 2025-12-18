@@ -53,8 +53,7 @@
 	backpack_contents = list(
 		/obj/item/roguekey/mercenary = 1, 
 		/obj/item/storage/belt/rogue/pouch/coins/poor = 1, 
-		/obj/item/rogueweapon/huntingknife/idagger/steel/corroded/dirk = 1,
-		/obj/item/reagent_containers/glass/bottle/rogue/strongpoison = 1,
+		/obj/item/rogueweapon/huntingknife/idagger/steel/dirk = 1,
 		/obj/item/rogueweapon/scabbard/sheath)
 	armor = /obj/item/clothing/suit/roguetown/armor/plate/fluted/shadowplate
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/shadowrobe
