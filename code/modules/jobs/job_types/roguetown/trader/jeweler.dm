@@ -51,11 +51,11 @@
 		/obj/item/roguegem/green = 1,
 		/obj/item/recipe_book/survival = 1,
 		/obj/item/rogueweapon/chisel = 1,
-		/obj/item/carvedgem/rose/rawrose = 2,
-		/obj/item/roguegem/jade = 2,
-		/obj/item/roguegem/onyxa = 2,
-		/obj/item/roguegem/turq = 2,
-		/obj/item/roguegem/coral = 2,
-		/obj/item/roguegem/amber = 2,
-		/obj/item/roguegem/opal = 2
+		/obj/item/carvedgem/rose/rawrose = 1,
+		/obj/item/roguegem/jade = 1,
+		/obj/item/roguegem/onyxa = 1,
+		/obj/item/roguegem/turq = 1,
+		/obj/item/roguegem/coral = 1,
+		/obj/item/roguegem/amber = 1,
+		/obj/item/roguegem/opal = 1
 		)
