@@ -1759,7 +1759,6 @@
 #include "code\modules\jobs\job_types\roguetown\adventurer\types\pilgrim\rare\Lminer.dm"
 #include "code\modules\jobs\job_types\roguetown\adventurer\types\pilgrim\rare\Lpeasant.dm"
 #include "code\modules\jobs\job_types\roguetown\adventurer\types\pilgrim\rare\Lsmith.dm"
-#include "code\modules\jobs\job_types\roguetown\adventurer\types\pilgrim\Scavenger.dm"
 #include "code\modules\jobs\job_types\roguetown\adventurer\types\special\courtagent.dm"
 #include "code\modules\jobs\job_types\roguetown\adventurer\types\special\crusader.dm"
 #include "code\modules\jobs\job_types\roguetown\adventurer\types\special\nakedandafraid.dm"

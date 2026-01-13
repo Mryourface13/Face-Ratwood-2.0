@@ -6,7 +6,7 @@
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/refugee/harvester
 	cmode_music = 'sound/music/cmode/towner/combat_towner2.ogg'
-	traits_applied = list(RAIT_HOMESTEAD_EXPERT)
+	traits_applied = list(TRAIT_HOMESTEAD_EXPERT)
 	category_tags = list(CTAG_PILGRIM)
 	subclass_stats = list(
 		STATKEY_STR = 2,
