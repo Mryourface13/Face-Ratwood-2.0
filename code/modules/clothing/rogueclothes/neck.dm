@@ -369,8 +369,8 @@
 	max_integrity = ARMOR_INT_SIDE_STEEL
 	smeltresult = /obj/item/ingot/aaslag
 
-/obj/item/clothing/neck/roguetown/gorget/cursed_collar
-	name = "cursed collar"
+/obj/item/clothing/neck/roguetown/gorget/prisoner_collar
+	name = "Prisoner's Collar"
 	desc = "A metal collar that seems to radiate an ominous aura."
 	icon_state = "cursed_collar"
 	item_state = "cursed_collar"
@@ -385,12 +385,12 @@
 	blocksound = PLATEHIT
 	leashable = TRUE
 
-/obj/item/clothing/neck/roguetown/gorget/cursed_collar/Initialize()
+/obj/item/clothing/neck/roguetown/gorget/prisoner_collar/Initialize()
 	. = ..()
-	name = "cursed collar"
+	name = "Prisoner's Collar"
 	ADD_TRAIT(src, TRAIT_NO_SELF_UNEQUIP, CURSED_ITEM_TRAIT)
 /*
-/obj/item/clothing/neck/roguetown/gorget/cursed_collar/dropped(mob/living/carbon/human/user)
+/obj/item/clothing/neck/roguetown/gorget/prisoner_collar/dropped(mob/living/carbon/human/user)
 	. = ..()
 	if(QDELETED(src))
 		return

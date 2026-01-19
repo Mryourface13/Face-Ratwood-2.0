@@ -163,7 +163,7 @@
 		pants = /obj/item/clothing/under/roguetown/tights/random
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/random
 		armor = /obj/item/clothing/suit/roguetown/shirt/tunic/random
-	neck = /obj/item/clothing/neck/roguetown/gorget/cursed_collar
+	neck = /obj/item/clothing/neck/roguetown/gorget/prisoner_collar
 
 
 /datum/outfit/job/roguetown/adventurer/runaway_prisoner/commoner/pre_equip(mob/living/carbon/human/H, visualsOnly)
@@ -184,7 +184,7 @@
 		pants = /obj/item/clothing/under/roguetown/tights/random
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/random
 		armor = /obj/item/clothing/suit/roguetown/shirt/tunic/random
-	neck = /obj/item/clothing/neck/roguetown/gorget/cursed_collar
+	neck = /obj/item/clothing/neck/roguetown/gorget/prisoner_collar
 
 
 /datum/outfit/job/roguetown/adventurer/runaway_prisoner/mage/pre_equip(mob/living/carbon/human/H, visualsOnly)
@@ -205,5 +205,5 @@
 		pants = /obj/item/clothing/under/roguetown/tights/random
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/random
 		armor = /obj/item/clothing/suit/roguetown/shirt/tunic/random
-	neck = /obj/item/clothing/neck/roguetown/gorget/cursed_collar
+	neck = /obj/item/clothing/neck/roguetown/gorget/prisoner_collar
 	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)

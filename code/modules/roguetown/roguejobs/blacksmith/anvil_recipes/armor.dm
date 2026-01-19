@@ -666,11 +666,11 @@
 	req_blade = /obj/item/blade/steel_plate
 	created_item = /obj/item/clothing/neck/roguetown/gorget/steel
 
-/datum/anvil_recipe/armor/iron/cursed_collar
-	name = "Cursed Collar"
+/datum/anvil_recipe/armor/iron/prisoner_collar
+	name = "Prisoner's Collar"
 	req_bar = /obj/item/ingot/iron
 	req_blade = /obj/item/blade/iron_plate
-	created_item = /obj/item/clothing/neck/roguetown/gorget/cursed_collar
+	created_item = /obj/item/clothing/neck/roguetown/gorget/prisoner_collar
 
 /datum/anvil_recipe/armor/steel/helmetsall
 	name = "Sallet, Steel"
