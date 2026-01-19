@@ -15,6 +15,7 @@
 	var/datum/mind/collar_master = null
 	var/silenced = FALSE
 	var/applying = FALSE
+	leashable = TRUE
 
 /obj/item/clothing/neck/roguetown/cursed_collar/attack(mob/living/carbon/human/C, mob/living/user)
 	if(!istype(C))
@@ -141,3 +142,7 @@
     . = ..()
     if(istype(user))
         SEND_SIGNAL(user, COMSIG_CARBON_LOSE_COLLAR)
+
+/obj/item/clothing/neck/roguetown/cursed_collar/Initialize()
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NO_SELF_UNEQUIP, CURSED_ITEM_TRAIT) // Prevent removal by self

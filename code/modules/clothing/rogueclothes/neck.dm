@@ -371,7 +371,7 @@
 
 /obj/item/clothing/neck/roguetown/gorget/prisoner_collar
 	name = "Prisoner's Collar"
-	desc = "A metal collar that seems to radiate an ominous aura."
+	desc = "A metal collar that is locked tightly around the neck. Its design prevents removal by the wearer."
 	icon_state = "cursed_collar"
 	item_state = "cursed_collar"
 	armor = ARMOR_CLOTHING
