@@ -3,8 +3,9 @@
 	desc = "A sinister looking collar with ruby studs. It seems to radiate a dark energy."
 	// Credit regarding sprites to Necbro
 	// https://github.com/StoneHedgeSS13/StoneHedge/commit/9ddc09d4cb91903beff6d523c91aef75312d5163
-	icon = 'modular_stonehedge/icons/clothing/armor/neck.dmi'
-	mob_overlay_icon = 'modular_stonehedge/icons/clothing/armor/onmob/neck.dmi'
+	// Old sprite at modular_stonehedge\icons\clothing\armor/
+	icon = 'modular/icons/obj/leashes_collars.dmi'
+	mob_overlay_icon = 'modular/icons/mob/leashes_collars.dmi'
 	icon_state = "cursed_collar"
 	item_state = "cursed_collar"
 	w_class = WEIGHT_CLASS_SMALL

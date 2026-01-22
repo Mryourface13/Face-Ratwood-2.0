@@ -669,7 +669,7 @@
 /obj/item/clothing/neck/roguetown/collar
 	name = "collar"
 	icon = 'modular/icons/obj/leashes_collars.dmi'
-	mob_overlay_icon = 'modular/icons/mob/collars_leashes.dmi'
+	mob_overlay_icon = 'modular/icons/mob/leashes_collars.dmi'
 	desc = "This is a debug parent item. If you are seeing it meow at the coders."
 	icon_state = "collar_rope"
 	item_state = "collar_rope"
@@ -684,7 +684,7 @@
 	name = "leather collar"
 	desc = "A sturdy leather collar."
 	icon = 'modular/icons/obj/leashes_collars.dmi'
-	mob_overlay_icon = 'modular/icons/mob/collars_leashes.dmi'
+	mob_overlay_icon = 'modular/icons/mob/leashes_collars.dmi'
 	icon_state = "leathercollar"
 	item_state = "leathercollar"
 	leashable = TRUE
@@ -697,7 +697,7 @@
 	name = "cowbell collar"
 	desc = "A leather collar with a jingly cowbell attached."
 	icon = 'modular/icons/obj/leashes_collars.dmi'
-	mob_overlay_icon = 'modular/icons/mob/collars_leashes.dmi'
+	mob_overlay_icon = 'modular/icons/mob/leashes_collars.dmi'
 	icon_state = "cowbellcollar"
 	item_state = "cowbellcollar"
 	leashable = TRUE
@@ -713,7 +713,7 @@
 	name = "catbell collar"
 	desc = "A leather collar with a jingling catbell attached."
 	icon = 'modular/icons/obj/leashes_collars.dmi'
-	mob_overlay_icon = 'modular/icons/mob/collars_leashes.dmi'
+	mob_overlay_icon = 'modular/icons/mob/leashes_collars.dmi'
 	icon_state = "catbellcollar"
 	item_state = "catbellcollar"
 	leashable = TRUE
