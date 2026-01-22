@@ -77,9 +77,7 @@
 	name = "cursed collar"
 	category = "Clothes"
 	result = /obj/item/clothing/neck/roguetown/cursed_collar
-	reqs = list(/obj/item/natural/hide/cured = 1,
-		/obj/item/roguegem/ruby = 1,
-		)
+	reqs = list(/obj/item/natural/hide/cured = 1, /obj/item/roguegem/ruby = 1)	
 	tools = list(/obj/item/needle)
 	time = 10 SECONDS
 	category = "Leatherwork"
