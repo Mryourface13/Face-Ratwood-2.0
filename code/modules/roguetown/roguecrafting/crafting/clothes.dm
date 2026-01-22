@@ -73,6 +73,19 @@
 	subcategory = CAT_NONE
 	always_availible = TRUE
 
+/datum/crafting_recipe/roguetown/leather/neck/cursed_collar
+	name = "cursed collar"
+	category = "Clothes"
+	result = /obj/item/clothing/neck/roguetown/cursed_collar
+	reqs = list(/obj/item/natural/hide/cured = 1,
+		/obj/item/roguegem/ruby = 1,
+		)
+	tools = list(/obj/item/needle)
+	time = 10 SECONDS
+	category = "Leatherwork"
+	subcategory = CAT_NONE
+	always_availible = TRUE
+
 /datum/crafting_recipe/roguetown/leather/neck/leather_leash
 	name = "leather leash"
 	result = /obj/item/leash/leather

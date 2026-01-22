@@ -200,13 +200,6 @@
 	created_item = /obj/item/listenstone
 	skill_level = 5
 
-/datum/artificer_recipe/contraptions/cursedcollar
-	name = "Cursed Collar (+1 Cog, +1 Rontz)"
-	required_item = /obj/item/ingot/iron
-	additional_items = list(/obj/item/roguegear/bronze, /obj/item/roguegem/ruby)
-	created_item = /obj/item/clothing/neck/roguetown/cursed_collar
-	skill_level = 4
-
 /datum/artificer_recipe/contraptions/folding_table
 	name = "Folding Table (+1 Small Log)"
 	required_item = /obj/item/ingot/bronze
