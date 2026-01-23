@@ -5,7 +5,7 @@
 	// https://github.com/StoneHedgeSS13/StoneHedge/commit/9ddc09d4cb91903beff6d523c91aef75312d5163
 	// Old sprite at modular_stonehedge\icons\clothing\armor/
 	icon = 'modular/icons/obj/leashes_collars.dmi'
-	mob_overlay_icon = 'modular/icons/mob/leashes_collars.dmi'
+	mob_overlay_icon = 'modular/icons/mob/leashes_collars_onmob.dmi'
 	icon_state = "cursed_collar"
 	item_state = "cursed_collar"
 	w_class = WEIGHT_CLASS_SMALL
